@@ -5,7 +5,7 @@ const Quote = (props) => {
   return (
     <div>
     <p>{props.quote.quote}</p>
-    <h4>{props.quote.author}</h4>
+    <h4>{props.quote.author ? props.quote.author: 'Anon.'}</h4>
     </div>
   )
 }
