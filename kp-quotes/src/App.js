@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 import Quote from './Quote'
 import NewQuoteButton from './NewQuoteButton'
+import NavBar from './NavBar'
 
 const apiUrl = 'http://localhost:3000/quotes'
 
@@ -37,6 +37,7 @@ class App extends Component {
     if(this.state.quotes.length > 0) {
     return (
       <React.Fragment>
+      <NavBar />
       <Quote quote={this.state.currentQuote}/>
       <NewQuoteButton getQuote={() => this.getQuote()} />
       </ React.Fragment>

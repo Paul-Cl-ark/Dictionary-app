@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.author {
+  color: green;
+}
+
+#thoughtful {
+  width: 60px;
+  margin: auto;
+}
+
+#NavBarText {
+  font-size: 45px;
+  margin-left: 10px;
+}
