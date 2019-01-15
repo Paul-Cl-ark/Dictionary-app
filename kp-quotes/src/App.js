@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Quote from './Quote'
+import NewQuoteButton from './NewQuoteButton'
 
 const apiUrl = 'http://localhost:3000/quotes'
 
@@ -8,7 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      quotes: [{quote: ''}]
+      quotes: [],
+      currentQuote: {}
     }
   }
 
@@ -20,19 +22,28 @@ class App extends Component {
     fetch(apiUrl)
       .then(response => response.json())
       .then(quoteData => {
-        console.log(quoteData)
-        this.setState({quotes: quoteData})
+        this.setState({
+          quotes: quoteData,
+          currentQuote: quoteData[Math.floor(Math.random() * quoteData.length)]
+        })
       })
   }
 
   getQuote = () => {
-    return this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)]
+    this.setState({currentQuote: this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)]})
   }
 
   render() {
+    if(this.state.quotes.length > 0) {
     return (
-      <Quote quote={this.getQuote()}/>
+      <React.Fragment>
+      <Quote quote={this.state.currentQuote}/>
+      <NewQuoteButton getQuote={() => this.getQuote()} />
+      </ React.Fragment>
     )
+  } else {
+    return <div>Loafing...</div>
+  }
   }
 }
 
