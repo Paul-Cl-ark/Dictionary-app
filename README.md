@@ -1,1 +1,1 @@
-Kenan and Paul's React dictionary App.
+Kenan and Paul's React Opninionated Quotes App.
